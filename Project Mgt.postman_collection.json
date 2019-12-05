@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "0fd978ec-c207-43e8-8319-033d30eedb1b",
+		"name": "Project Mgt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/v1/employee create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"employee_first_name\": \"string\",\n  \"employee_id\": 11,\n  \"employee_last_name\": \"string\",\n  \"manager_id\": null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/project create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"parent_project_id\": null,\n  \"project_id\": \"1\",\n  \"project_name\": \"string\",\n  \"project_start_date\": \"2019-12-05T17:49:56.110Z\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/project",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"project"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/team validation backend",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"employee_id\": 0,\n  \"project_id\": \"1\",\n  \"team_id\": \"Team1\",\n  \"team_name\": \"team 1 name\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/team",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"team"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/team validation payload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"employee_id\": 1,\n  \"project_id\": \"1\",\n  \"team_id\": \"Team2\",\n  \"team_name\": \"team 1 name\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/team",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"team"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/team/Team1 delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/team/Team2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"team",
+						"Team2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/employee/1 Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employee/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
