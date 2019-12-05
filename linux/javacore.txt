@@ -1,0 +1,4 @@
+1TISIGINFO     rrrrrrrr
+1TIDATETIME    ddddddd
+2CIENVVAR      ENVIRON_NAME=eeeeee
+2CIENVVAR      SERVER_PORT=pppp
