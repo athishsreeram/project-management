@@ -35,3 +35,11 @@ http://localhost:8080/swagger-ui.html
 
 ## Postman Collection
 https://raw.githubusercontent.com/athishsreeram/project-management/master/Project%20Mgt.postman_collection.json
+
+
+## Linux
+
+https://github.com/athishsreeram/project-management/blob/master/linux/parser.sh
+
+## Output
+![alt text](https://github.com/athishsreeram/project-management/blob/master/linout.png)
