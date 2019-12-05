@@ -15,12 +15,12 @@
 
 ```
 
-git clone
+git clone https://github.com/athishsreeram/project-management.git
 
 ```
 
 Make sure you configure the mysql
-https://github.com/athishsreeram/project-management.git
+https://github.com/athishsreeram/project-management/blob/master/src/main/resources/application.properties
 
 ```
 
@@ -34,4 +34,4 @@ mvn spring-boot:run
 http://localhost:8080/swagger-ui.html
 
 ## Postman Collection
-https://github.com/athishsreeram/project-management.git
+https://raw.githubusercontent.com/athishsreeram/project-management/master/Project%20Mgt.postman_collection.json
