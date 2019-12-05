@@ -1,6 +1,7 @@
 package org.github.athishsreeram.project;
 
 import lombok.RequiredArgsConstructor;
+import org.github.athishsreeram.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -38,9 +39,19 @@ public class ProjectService {
         return Optional.empty();
     }
 
-    public ProjectDTO save(ProjectDTO project) {
+    public ProjectDTO save(ProjectDTO project) throws ResourceNotFoundException {
 
         Project pjt = projectMapper.projectDTOToProjectDomain(project);
+
+        if(project.getParent_project_id() != null) {
+            Optional<Project> pjtPr = projectRespository.findById(project.getParent_project_id());
+
+            if (pjtPr.isPresent()) {
+                pjt.setParent(pjtPr.get());
+            }else{
+                throw new ResourceNotFoundException("Parent Project id not found");
+            }
+        }
 
         pjt = projectRespository.save(pjt);
 
@@ -48,7 +59,16 @@ public class ProjectService {
 
     }
 
-    public void deleteById(String id) {
-        projectRespository.deleteById(id);
+    public void deleteById(String id) throws ResourceNotFoundException {
+
+        Optional<Project> pjtPr = projectRespository.findById(id);
+
+        if (pjtPr.isPresent()) {
+            projectRespository.delete(pjtPr.get());
+        }else{
+            throw new ResourceNotFoundException(" Project id not found");
+        }
+
+
     }
 }

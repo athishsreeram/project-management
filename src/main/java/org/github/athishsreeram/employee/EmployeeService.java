@@ -27,6 +27,17 @@ public class EmployeeService {
 
     }
 
+    public List<EmployeeDTO> findAllManagers() {
+        List<Employee> lstPjt =  employeeRespository.findAllManagers();
+
+        if(!lstPjt.isEmpty()) {
+            return employeeMapper.projectsToProjectsDto(lstPjt);
+        }
+
+        return new ArrayList<EmployeeDTO>();
+
+    }
+
     public Optional<EmployeeDTO> findById(Long id) {
 
         Optional<Employee> pjt = employeeRespository.findById(id);

@@ -2,6 +2,7 @@ package org.github.athishsreeram.project;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.github.athishsreeram.exception.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +25,7 @@ public class ProjectAPI {
     }
 
     @PostMapping
-    public ResponseEntity create(@Valid @RequestBody ProjectDTO product) {
+    public ResponseEntity create(@Valid @RequestBody ProjectDTO product) throws ResourceNotFoundException {
         return ResponseEntity.ok(projectService.save(product));
     }
 
@@ -32,14 +33,14 @@ public class ProjectAPI {
     public ResponseEntity<ProjectDTO> findById(@PathVariable String id) {
         Optional<ProjectDTO> stock = projectService.findById(id);
         if (!stock.isPresent()) {
-            ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().build();
         }
 
         return ResponseEntity.ok(stock.get());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProjectDTO> update(@PathVariable String id, @Valid @RequestBody ProjectDTO product) {
+    public ResponseEntity<ProjectDTO> update(@PathVariable String id, @Valid @RequestBody ProjectDTO product) throws ResourceNotFoundException {
         if (!projectService.findById(id).isPresent()) {
             ResponseEntity.badRequest().build();
         }
@@ -48,9 +49,9 @@ public class ProjectAPI {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable String id) {
+    public ResponseEntity delete(@PathVariable String id) throws ResourceNotFoundException {
         if (!projectService.findById(id).isPresent()) {
-            ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().build();
         }
 
         projectService.deleteById(id);

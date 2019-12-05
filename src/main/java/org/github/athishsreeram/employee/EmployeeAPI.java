@@ -38,6 +38,11 @@ public class EmployeeAPI {
         return ResponseEntity.ok(stock.get());
     }
 
+    @GetMapping("/managers/all")
+    public ResponseEntity<List<EmployeeDTO>> findAllManagers() {
+        return ResponseEntity.ok(employeeService.findAllManagers());
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<EmployeeDTO> update(@PathVariable Long id, @Valid @RequestBody EmployeeDTO product) {
         if (!employeeService.findById(id).isPresent()) {

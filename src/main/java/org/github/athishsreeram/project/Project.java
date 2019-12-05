@@ -3,8 +3,7 @@ package org.github.athishsreeram.project;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -16,7 +15,9 @@ public class Project {
 
     private String project_name;
 
-    private String parent_project_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_project_id")
+    private Project parent;
 
     private Date project_start_date;
 

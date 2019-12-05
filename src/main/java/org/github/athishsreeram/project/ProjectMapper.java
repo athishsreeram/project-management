@@ -10,7 +10,10 @@ public interface ProjectMapper {
 
     ProjectMapper INSTANCE = Mappers.getMapper(ProjectMapper.class);
 
-
+    @Mappings({
+            @Mapping(source = "parent.project_id",target = "project_id"),
+    }
+    )
     ProjectDTO projectToProjectDto(Project project);
 
     List<ProjectDTO> projectsToProjectsDto(List<Project> project);
