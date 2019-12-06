@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.github.athishsreeram.springboot</groupId>
-    <artifactId>productmgt-crud</artifactId>
+    <artifactId>projectmgt-crud</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <parent>
