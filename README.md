@@ -57,12 +57,12 @@ brew install docker
 ```
 docker images
 
+docker run -p 3307:3306  -d --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=root" --env="MYSQL_PASSWORD=root" --env="MYSQL_DATABASE=test" mysql
+
 docker build -t projectmgt-manual-build .
 
 docker images
 
-docker run -d --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=root" --env="MYSQL_PASSWORD=root" --env="MYSQL_DATABASE=test" mysql
-
-docker run -t --name projectmgt-manual-build --link docker-mysql:mysql -p 8080:8082 projectmgt-manual-build
+docker run -d --name projectmgt-manual-build --link docker-mysql:mysql -p 8080:8080 projectmgt-manual-build
 
 ```
